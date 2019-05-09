@@ -1,0 +1,199 @@
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0 0 30px #bbb;
+  padding: 18px 15px;
+  z-index: 9;
+  transition: .3s;
+
+  &.fixed {
+    padding: 5px 15px;
+  }
+
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    color: $color_2;
+    font-size: 30px;
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  .mainmenu {
+    @media(max-width: $mobile-menu-breakpoint) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #fff;
+      overflow-y: auto;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .3s, visibility 0s .3s, transform .3s;
+    }
+    .navbar-nav {
+      display: flex;
+      @media(max-width: $mobile-menu-breakpoint) {
+        flex-direction: column;
+        margin: 50px auto;
+        text-align: center;
+      }
+      li {
+        a {
+          padding: 10px 24px;
+          display: inline-block;
+          white-space: nowrap;
+          color: $color_1;
+          transition: .3s;
+          text-decoration: none;
+          cursor: pointer;
+          @media(max-width: 1110px) {
+            padding: 10px;
+          }
+          &:hover {
+            color: $color_2;
+          }
+        }
+        &.menu-item-has-children {
+          position: relative;
+          > a {
+
+            &:after {
+              content: '\e800';
+              font-family: 'fontello';
+              margin-left: 0.3em;
+            }
+          }
+          .sub-menu {
+            display: none;
+            background-color: #fff;
+
+            @media(min-width: $mobile-menu-breakpoint + 1) {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              padding:10px 0;
+            }
+
+            li {
+              a {
+                padding: 5px 24px;
+                font-size: .9em;
+                @media(max-width: 1110px) {
+                  padding: 5px 10px;
+                }
+              }
+            }
+
+          }
+
+        }
+
+        &.bttn {
+          a {
+            color: #fff;
+            padding: 12px 25px;
+            margin-left: 60px;
+            @media(max-width: 1110px) {
+              margin-left: 10px;
+            }
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .menu-trigger {
+    @media(min-width: $mobile-menu-breakpoint + 1) {
+      display: none;
+    }
+    width: 30px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    div {
+      position: absolute;
+      height: 2px;
+      background-color: $color_1;
+      transition: .3s;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      &:after, &:before {
+        position: absolute;
+        height: 100%;
+        background-color: $color_1;
+        transition: .3s;
+        width: 100%;
+        content: "";
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      &:after {
+        margin-top: 8px;
+      }
+      &:before {
+        margin-top: -8px;
+      }
+    }
+    &:hover {
+      div {
+        width: 80%;
+        &:after {
+          width: 120%;
+          margin-top: 7px;
+        }
+        &:before {
+          width: 120%;
+          margin-top: -7px;
+        }
+      }
+    }
+  }
+
+  &.menu-open {
+
+    .mainmenu {
+      transition: opacity .3s, visibility 0s 0s, transform .3s;
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-trigger {
+      div {
+        width: 100%;
+        background-color: transparent;
+        &:after, &:before {
+          width: 100%;
+          margin-top: 0;
+        }
+        &:after {
+          transform: translate(-50%, -50%) rotate(45deg);
+          background-color: $color_2;
+        }
+        &:before {
+          transform: translate(-50%, -50%) rotate(-45deg);
+          background-color: $color_2;
+        }
+      }
+    }
+  }
+
+}

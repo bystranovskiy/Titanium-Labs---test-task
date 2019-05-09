@@ -7,7 +7,7 @@ module.exports = {
 
     watch: true,
 
-    entry: ['./src/js/entry.es6'],
+    entry: './src/js/entry.es6',
 
     output: {
         path: __dirname + '/build',
@@ -29,6 +29,15 @@ module.exports = {
 
         rules: [
             {
+                test: /\.(jsx|js)$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    cacheDirectory: true,
+                    presets: ['react', 'es2015', 'stage-2']
+                }
+            },
+            {
                 test: /\.es6$/,
                 exclude: /(node_modules|bower_components)/,
                 use: {
@@ -37,13 +46,6 @@ module.exports = {
                         presets: ['env']
                     }
                 }
-            },
-
-            {
-                enforce: "pre",
-                test: /\.es6$/,
-                exclude: /node_modules/,
-                loader: "eslint-loader"
             },
 
             {
@@ -69,7 +71,7 @@ module.exports = {
                             options: {
                                 plugins: [
                                     autoprefixer({
-                                        browsers: ['last 5 version']
+                                        browsers: ['last 4 version']
                                     })
                                 ],
                                 sourceMap: 'inline'

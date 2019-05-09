@@ -2,3 +2,39 @@ html, body {
   width: 100vw;
   overflow-x: hidden;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: $color_1;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+#page {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+.bttn {
+  a, span {
+    background: $color_2;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    transition: .3s;
+    padding: 12px 25px;
+    &:hover {
+      color: #fff;
+      background: $color_1;
+    }
+  }
+}

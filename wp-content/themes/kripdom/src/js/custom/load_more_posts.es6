@@ -2,26 +2,31 @@
 
     $(document).ready(function () {
 
-        $(".page-template-page_media .load-more span").on("click", function (e) {
+        $(".section_posts_list .view-more").on("click", function (e) {
+            console.log('view-more');
 
-            var $this = $(this),
-            paged = $this.data('paged') + 1;
+            var $this = $(this).find('span'),
+                ajaxurl = ajaxMeta.ajaxurl,
+                $container = $this.closest('.container').find('.post_list'),
+                paged = $this.data('paged') + 1,
+                posts_count = $this.data('posts_count'),
+                order = $this.data('order'),
+                found_posts = $this.data('found_posts');
 
             $this.data('paged', paged);
-
-
-            var ajaxurl = ajaxMeta.ajaxurl,
-                category_name = $this.data('category_name'),
-                $container = $this.closest('.column').find('ul'),
-                found_posts = $this.data('found_posts');
 
             $.ajax({
                 url: ajaxurl,
                 type: 'post',
                 data: {
-                    action: 'media_load_more',
+                    action: 'load_more_posts',
                     'paged': paged,
-                    'category_name': category_name
+                    'posts_count': posts_count,
+                    'order': order,
+                    'found_posts': found_posts
+                },
+                beforeSend: function () {
+                    $this.find('i').addClass('animate-spin');
                 },
                 success: function (data) {
                     var $data = $(data);
@@ -31,8 +36,10 @@
                         $container.find('li').fadeIn('slow');
 
                         if (found_posts <= $container.find('li').length) {
-                            $this.css('visibility','hidden');
+                            $this.css('visibility', 'hidden');
                         }
+
+                        $this.find('i').removeClass('animate-spin');
 
                     } else {
                         console.log('error');

@@ -1,0 +1,126 @@
+.section_posts_list {
+
+  padding: 50px 0;
+
+  .section-title {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+    position: relative;
+    &:after {
+      content: "";
+      width: 120px;
+      height: 5px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('/wp-content/themes/kripdom/assets/imgs/title-bg.jpg');
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+      position: absolute;
+      background-position: left center;
+    }
+  }
+  .section-description {
+    font-size: 15px;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 730px;
+    line-height: 1.9em;
+    margin-bottom: 25px;
+    color:#758b93;
+  }
+  .post_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 45px -15px 0 -15px;
+    @media(max-width: $mobile-menu-breakpoint) {
+      justify-content: center;
+    }
+
+    &.posts_count_2 {
+      .post {
+        width: 50%;
+      }
+    }
+    &.posts_count_3 {
+      .post {
+        width: 33.3%;
+      }
+    }
+    &.posts_count_4 {
+      .post {
+        width: 25%;
+      }
+    }
+
+    .post {
+      padding: 15px 15px 35px 15px;
+      max-width: 400px;
+      @media(max-width: $mobile-menu-breakpoint) {
+        width: 100% !important;
+      }
+
+      .post_image {
+        position: relative;
+        padding-top: 54%;
+        overflow: hidden;
+        background: $color_1;
+        .post_image_bg {
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          transition: 1s;
+        }
+      }
+
+      &:hover {
+        .post_image {
+          .post_image_bg {
+            transform: scale(1.1);
+            opacity: .7;
+          }
+        }
+      }
+
+      .post_info {
+        padding: 17px 0 20px;
+        border-bottom: 1px solid #e0f3ff;
+        font-size: 14px;
+        color:#758b93;
+      }
+
+      .post_title {
+        padding: 24px 0 0 0;
+        a {
+          font-size: 24px;
+          text-decoration: none;
+          font-weight: bold;
+          color: $color_1;
+          transition: .3s;
+          cursor: pointer;
+          line-height: 1.4em;
+          &:hover {
+            color: $color_2;
+          }
+        }
+      }
+    }
+
+  }
+
+  .view-more {
+    text-align: center;
+  }
+
+}

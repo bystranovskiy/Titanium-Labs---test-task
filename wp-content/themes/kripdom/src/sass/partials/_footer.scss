@@ -1,0 +1,36 @@
+footer {
+  padding: 15px 0;
+  background: $color_1;
+  color: #fff;
+  font-size: 12px;
+  margin-top: 30px;
+  .wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media(max-width: $mobile-menu-breakpoint) {
+      justify-content: center;
+      text-align: center;
+      flex-direction: column-reverse;
+      > div {
+        width: 100%;
+      }
+    }
+    .navbar-nav {
+      display: flex;
+      justify-content: center;
+      li {
+        a {
+          padding: 5px;
+          text-decoration: none;
+          color: #fff;
+          transition: .3s;
+          display: inline-block;
+          &:hover {
+            color: $color_2;
+          }
+        }
+      }
+    }
+  }
+}

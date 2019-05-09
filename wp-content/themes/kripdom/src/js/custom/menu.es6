@@ -9,6 +9,13 @@
             $('header').toggleClass('menu-open');
         });
 
+        $('.mainmenu .menu-item-has-children').hover(function(){
+            console.log('hover');
+            $(this).find('.sub-menu').slideDown();
+        }, function(){
+            $(this).find('.sub-menu').slideUp();
+        });
+
 
         //************************************
         // Fixed header when scroll

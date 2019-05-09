@@ -36,10 +36,5 @@
     "wordpress theme starter"
   ],
   "author": "lemehovskiy",
-  "license": "MIT",
-  "dependencies": {
-    "gsap": "^2.1.2",
-    "parallax_background": "^1.0.9",
-    "parallax_content": "^1.0.7"
-  }
+  "license": "MIT"
 }

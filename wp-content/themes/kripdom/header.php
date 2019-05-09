@@ -22,21 +22,23 @@
 <div id="page" class="site">
     <header>
         <div class="container">
-            <div class="logo">
-                <strong>Krip</strong>dom
-            </div>
-            <?php
-            wp_nav_menu(array(
-                    'menu' => 'Main nav',
-                    'container' => '',
-                    'menu_class' => 'nav navbar-nav'
-                )
-            );
-            ?>
-            <div class="menu-trigger">
-                <div></div>
-                <div></div>
-                <div></div>
+            <div class="wrapper">
+                <div class="logo">
+                    <strong>Krip</strong>dom
+                </div>
+                <div class="mainmenu">
+                    <?php
+                    wp_nav_menu(array(
+                            'menu' => 'Main nav',
+                            'container' => '',
+                            'menu_class' => 'nav navbar-nav'
+                        )
+                    );
+                    ?>
+                </div>
+                <div class="menu-trigger">
+                    <div></div>
+                </div>
             </div>
         </div>
 
