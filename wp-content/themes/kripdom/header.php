@@ -4,8 +4,8 @@
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" href="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/favicon.ico"
-          type="image/png"/>
+    <link rel="shortcut icon" href="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="<?php echo esc_url(get_stylesheet_directory_uri()); ?>/favicon.ico" type="image/x-icon">
     <!--[if lte IE 9 ]>
     <script>
         alert('Browser version is too old and site will not be displayed correctly. Please, upgrade your browser.');
