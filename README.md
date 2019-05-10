@@ -15,6 +15,9 @@ TITANIUM LABS - test task
 npm install
 npm run build
 ```
+Login to admin area:
+welcome
+2^Rms$2x8k!nFrFhRw
 
 Is the site running?
 You're doing fine!
